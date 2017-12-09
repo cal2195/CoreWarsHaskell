@@ -1,12 +1,16 @@
 Main module for the CoreWars sim
 
-> module CoreWars where
+> module CoreWars(start) where
 >
 > import RedCode
 > import System.Environment
 > import Data.Array.IO
 
-Given a list of files as args, parse these files and create a list of Programs
+Start our sim! :D
+
+> start = generateMemory loadFiles
+
+Given a list of files as args, parse these files and create a list of programs
 
 > loadFiles :: IO [Program]
 > loadFiles = do
@@ -19,8 +23,9 @@ Given a list of files as args, parse these files and create a list of Programs
 Next up, given a list of programs, populate memory with them, evenly spaced apart!
 
 > generateMemory programs = do
->   memory <- (newArray (1,8000) (RedCode DAT Nothing (Just (Field (DRCT,0))))) :: IO (IOArray Int RedCode)
->   populateMemory memory programs 0 (length programs)
+>   progs <- programs
+>   memory <- (newArray (0,8000) (RedCode DAT Nothing (Just (Field (DRCT,0))))) :: IO (IOArray Int RedCode)
+>   populateMemory memory progs 0 (length progs)
 >   return memory
 
 Take a list of programs, and insert them into memory

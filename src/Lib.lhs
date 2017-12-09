@@ -5,4 +5,6 @@
 > import CoreWars
 >
 > someFunc :: IO ()
-> someFunc = putStrLn "someFunc"
+> someFunc = do
+>   start
+>   return ()
