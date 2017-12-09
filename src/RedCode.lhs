@@ -1,6 +1,6 @@
 This module will hold all the redcode types and programs
 
-> module RedCode(Program, parseProgram) where
+> module RedCode(Program, RedCode(..), OpCode(..), Field(..), AddrMode(..), parseProgram) where
 > import Data.List.Split
 
 A program is a list of redcode instructions
