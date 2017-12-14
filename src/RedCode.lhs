@@ -9,7 +9,7 @@ A program is a list of redcode instructions
 
 A redcode instuction has an opcode, and maybe one or two fields
 
-> data RedCode = RedCode OpCode (Maybe Field) (Maybe Field)
+> data RedCode = RedCode OpCode Field Field
 
 The list of opcodes
 
@@ -31,7 +31,7 @@ Take each line split by whitespace and parse it into redcode
 
 Parse each field if it exists
 
-> parseField :: Maybe String -> Maybe Field
+> parseField :: Maybe String -> Field
 > parseField (Just field) = do
 >   let addrMode = head field
 >   let (mode, addr) = case addrMode of
@@ -39,7 +39,8 @@ Parse each field if it exists
 >                        '#' -> (IMED, read $ drop 1 field)
 >                        '<' -> (ADEC, read $ drop 1 field)
 >                        _   -> (DRCT, read $ field)
->   return (Field $ (mode, addr))
+>   (Field (mode, addr))
+> parseField _ = Field (DRCT, 0)
 
 
 Parse a list of strings to a redcode program
