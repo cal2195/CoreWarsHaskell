@@ -1,12 +1,12 @@
-name:                simple
+name:                RedCode
 version:             0.1.0.0
 synopsis:            Short description of your package
-homepage:            https://github.com/githubuser/simple#readme
+homepage:            https://github.com/cal2195/CoreWarsHaskell
 license:             BSD3
 license-file:        LICENSE
-author:              Author name here
-maintainer:          example@example.com
-copyright:           2017 Author name here
+author:              Cal Martin
+maintainer:          cmartin7@tcd.ie
+copyright:           2017 Cal Martin
 category:            Web
 build-type:          Simple
 extra-source-files:  README.md
@@ -15,33 +15,33 @@ cabal-version:       >=1.10
 -- To avoid duplicated efforts in documentation and dealing with the
 -- complications of embedding Haddock markup inside cabal files, it is
 -- common to point users to the README.md file.
-description:         Please see the README on Github at <https://github.com/githubuser/simple#readme>
+description:         CoreWars in Haskell - See https://github.com/cal2195/CoreWarsHaskell
 
 library
   hs-source-dirs:      src
-  exposed-modules:     Lib, CoreWars, RedCode
+  exposed-modules:     Lib, CoreWars, RedCode, Sim
   build-depends:       base >= 4.7 && < 5
                      , split
                      , array
   default-language:    Haskell2010
 
-executable simple-exe
+executable redcode-exe
   hs-source-dirs:      app
   main-is:             Main.lhs
   ghc-options:         -threaded -rtsopts -with-rtsopts=-N
   build-depends:       base
-                     , simple
+                     , RedCode
   default-language:    Haskell2010
 
-test-suite simple-test
+test-suite redcode-test
   type:                exitcode-stdio-1.0
   hs-source-dirs:      test
   main-is:             Spec.hs
   build-depends:       base
-                     , simple
+                     , RedCode
   ghc-options:         -threaded -rtsopts -with-rtsopts=-N
   default-language:    Haskell2010
 
 source-repository head
   type:     git
-  location: https://github.com/githubuser/simple
+  location: https://github.com/cal2195/CoreWarsHaskell

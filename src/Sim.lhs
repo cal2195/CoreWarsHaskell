@@ -69,3 +69,9 @@ I didn't have enough time to complete the rest... :(
 For the simulation part, I was going to implement a system similar to the PoorMansConcurrency2.lhs file,
 where there was a list of threads, and each thread had a list of tasks (program counters) which would be
 executed in a round robin order!
+
+Each clock cycle, the next thread would get the next task and go to it's location in memory, execute the
+required instuction, update the program counter as nescessary and then move this task to the back of the
+queue for next time. (Unless it executed a DAT instruction!)
+
+This would keep going until there were no threads and tasks left, or a timeout.
